@@ -2,7 +2,7 @@
 Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen für eine einfachere Navigation bietet.
 
 ### Alternativen
-- [https://www.opendatainception.io](opendatainception.io)
-- [https://www.opendatasoft.com/explore](opendatasoft.com/explore)
-- [https://www.opendatamonitor.eu](opendatamonitor.eu)
-- [https://www.offenedaten.de](offenedaten.de)
+- [opendatainception.io](https://opendatainception.io)
+- [data.opendatasoft.com](https://www.https://data.opendatasoft.com/pages/home/)
+- [opendatamonitor.eu](https://www.opendatamonitor.eu)
+- [offenedaten.de](https://www.offenedaten.de)
