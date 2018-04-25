@@ -1,0 +1,4 @@
+= link_to 'Data APIs', data_portals_path
+
+- @cities.each do |city|
+  %p="#{city.name} => #{city.datasets.count}" if city.datasets.count > 0

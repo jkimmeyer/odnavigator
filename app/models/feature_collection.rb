@@ -1,0 +1,2 @@
+class FeatureCollection < ApplicationRecord
+end

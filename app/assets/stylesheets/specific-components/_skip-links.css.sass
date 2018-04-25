@@ -1,0 +1,26 @@
+.skip-links
+  position: absolute
+  z-index: z('skip-links')
+  top: 0
+  left: 0
+  width: 100%
+
+.skip-links--link
+  +flex-center(horizontal)
+  +text-headline-m
+  opacity: 0
+  position: absolute
+  width: 100%
+  height: 95px
+  transform: translateY(-95px)
+  outline: 0
+  text-align: center
+  text-decoration: none
+  color: $color-text-inverted
+  background-color: $color-background-translucent
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out
+  &:focus,
+  &:active
+    opacity: 1
+    transform: translateY(0)
+    text-decoration: none

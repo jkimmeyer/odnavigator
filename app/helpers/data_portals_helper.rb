@@ -1,0 +1,3 @@
+module DataPortalsHelper
+
+end

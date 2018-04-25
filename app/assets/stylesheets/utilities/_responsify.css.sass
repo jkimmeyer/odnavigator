@@ -1,0 +1,46 @@
+// Breakpoint Variables
+//
+// The viewport-ranges must be mutually exclusive!
+//
+// <--- large --- | --- medium --- | --- small --->
+//
+// Unfortunately the indented Sass syntax doesn't support multiline …
+$breakpoints: ('large': 'screen and (min-width: 1025px)', 'medium': 'screen and (min-width: 569px) and (max-width: 1024px)', 'small': 'screen and (max-width: 568px)')
+
+// Respond-To-Mixin
+//
+// This mixin is used for managing your media queries.
+//
+// Code your mediaqueries/styles in a descending order:
+//
+// global styles -> large viewport -> medium viewport -> small viewport
+//
+// Usage:
+//
+// .my-class
+//   position: relative
+//
+// +respond-to(large, medium)
+//   .my-class
+//     color: #cc0
+//
+// +respond-to(small)
+//   .my-class
+//     color: #303
+=respond-to($args...)
+  @each $name in $args
+    @if map-has-key($breakpoints, $name)
+      @media #{map-get($breakpoints, $name)}
+        @content
+    @else
+      @warn "Unfortunately, no value could be retrieved from `#{$name}`. Please make sure it is defined in `#{$breakpoints}` map."
+
+// Show breakpoints inside debug output
++respond-to(large)
+  +debug-output('large')
+
++respond-to(medium)
+  +debug-output('medium', dimgrey)
+
++respond-to(small)
+  +debug-output('small', black)

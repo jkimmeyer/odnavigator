@@ -1,0 +1,59 @@
+// Flexbox-Grid
+//
+// Sample input:
+// .parent
+//   +grid(center, space-between)
+//
+// .child-1
+//   +column
+//
+// .child-2
+//   +column(9)
+//
+// Sample output:
+// .parent
+//   display: flex
+//   flex-wrap: wrap
+//   align-items: center
+//   justify-content: space-between
+//
+// .child-1
+//   flex-grow: 1
+//   flex-shrink: 0
+//   width: 0
+//   min-width: 0
+//
+// .child-2
+//   flex-grow: 0
+//   flex-shrink: 0
+//   width: calc(100% * (9 / 12))
+
+$vertical-map: (top: flex-start, center: center, bottom: flex-end, stretch: stretch, baseline: baseline)
+$horizontal-map: (left: flex-start, center: center, right: flex-end, space-between: space-between, space-around: space-around)
+
+=grid($vertical-alignment, $horizontal-alignment)
+  display: flex
+  flex-wrap: wrap
+
+  @if map-has-key($vertical-map, $vertical-alignment)
+    $vertical-value: map-get($vertical-map, $vertical-alignment)
+    align-items: $vertical-value
+  @else
+    @error "The key '#{$vertical-alignment}' doesn't exist. Please choose one of these options: #{map-values($vertical-map)}."
+
+  @if map-has-key($horizontal-map, $horizontal-alignment)
+    $horizontal-value: map-get($horizontal-map, $horizontal-alignment)
+    justify-content: $horizontal-value
+  @else
+    @error "The key '#{$horizontal-alignment}' doesn't exist. Please choose one of these options: #{map-values($horizontal-map)}."
+
+=column($column-span: all, $total-columns: 12)
+  @if $column-span == 'all'
+    flex-grow: 1
+    width: 0
+    min-width: 0
+  @else
+    flex-grow: 0
+    width: 100% * (#{$column-span} / #{$total-columns})
+
+  flex-shrink: 0

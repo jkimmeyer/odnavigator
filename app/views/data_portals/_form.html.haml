@@ -1,0 +1,12 @@
+.container
+  =simple_form_for @data_portal do |f|
+    =f.association :cities
+    =f.input :name
+    =f.input :url
+    =f.input :description
+    =f.input :version
+    =f.input :search_param
+    =f.input :category_key
+    =f.input :result_store_key
+    =f.input :status
+    =f.submit

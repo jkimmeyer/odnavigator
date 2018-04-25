@@ -1,0 +1,63 @@
+// This manifest file imports all basic files that have to be included in every context.
+// Do not import stuff here that is not relevant to all contexts.
+//= require leaflet
+//= require leaflet.markercluster
+
+// Reset Styles
+//-------------
+@import globals/reset
+
+// Libary Imports
+//---------------
+@import "bootstrap-sprockets"
+@import "bootstrap"
+
+// Utility Imports
+//----------------
+@import utilities/center
+@import utilities/clearfix
+@import utilities/debug
+@import utilities/ellipsis
+@import utilities/font-smoothing
+@import utilities/grid
+@import utilities/hide-text
+@import utilities/layering
+@import utilities/responsify
+@import utilities/visually-hidden
+
+// Global Imports
+//---------------
+@import globals/colors
+@import globals/typography
+@import globals/sizes
+
+// Base Styles
+//------------
+@import globals/base
+
+// Abstract Component Imports
+//---------------------------
+//@import abstract-components/…
+
+// Generic Component Imports
+//--------------------------
+@import generic-components/button
+@import generic-components/data-table
+@import generic-components/skip-links
+
+// Specific Component Imports
+//---------------------------
+@import specific-components/page/page-footer
+@import specific-components/page/page-header
+
+#mapid
+  +grid(center, right)
+  +column(10)
+  height: 90vh
+
+.feature--marker
+  @include flex-center
+  border: 1px solid black
+  border-radius: 50%
+  color: green
+  background-color: blue

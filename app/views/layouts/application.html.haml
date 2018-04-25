@@ -1,0 +1,30 @@
+!!!
+%html{lang: 'de', class: 'no-js no-touch'}
+  %head
+    = render partial: 'layouts/head'
+
+  %body
+    -# lazyload icon-sprite, to avoid including it as inline svg-code
+    :javascript
+      var ajax = new XMLHttpRequest();
+      ajax.open("GET", "#{image_path 'icon-sprite.svg'}", true);
+      ajax.send();
+      ajax.onload = function(e) {
+        var div = document.createElement("div");
+        div.innerHTML = ajax.responseText;
+        document.body.insertBefore(div, document.body.childNodes[0]);
+      }
+
+    %noscript
+      %div
+        = raw Rails.application.assets.find_asset('icon-sprite.svg')
+
+    = render partial: 'components/skip_links'
+
+    .page
+      = render partial: 'components/page/page_header'
+
+      %main#page-main.page-main{tabindex: '-1'}
+        = yield
+
+      = render partial: 'components/page/page_footer'

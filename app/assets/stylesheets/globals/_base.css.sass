@@ -1,0 +1,114 @@
+// This file is for setting minimum base styles and normalizing common tags.
+// Please do not style tags like h1, h2, p etc. globally because they rarely have the same styling on every page.
+
+// Superior Styles
+html
+  box-sizing: border-box
+
+*,
+*::before,
+*::after
+  box-sizing: inherit
+
+[hidden]
+  display: none !important
+
+// Body
+body
+  +text-copy-m
+  text-align: left
+  text-rendering: optimizeLegibility
+  text-size-adjust: 100%
+  color: $color-text
+  background-color: $color-background-page
+
+// General Text Formatting
+b,
+strong
+  font-weight: 700
+
+i,
+em
+  font-style: italic
+
+dfn,
+address
+  font-style: normal
+
+abbr
+  cursor: help
+
+sub,
+sup
+  +text-copy-xs
+  position: relative
+
+sub
+  top: 4px
+
+sup
+  top: -6px
+
+mark
+  color: $color-text
+  background-color: $color-background-selection
+
+pre,
+code,
+kbd,
+samp,
+var
+  font-family: $font-stack-monospaced
+
+// Textselection
+::selection
+  text-shadow: none
+  color: $color-text
+  background-color: rgba($color-background-selection, 0.99) // rgba to adjust Chrome-Firefox differences
+
+// Horizontal Rules
+hr
+  height: 1px
+  margin: 0
+  border: 0
+  padding: 0
+  background-color: $color-border-light
+
+// Images
+img
+  display: block
+  max-width: 100%
+
+// Buttons
+button
+  +font-smoothing
+  appearance: none
+  overflow: visible
+  display: inline-block
+  vertical-align: top
+  position: relative
+  margin: 0
+  border: 0
+  padding: 0
+  text-align: center
+  text-transform: none
+  background-color: transparent
+  cursor: pointer
+  &:focus,
+  &:hover
+    outline: 0
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+  [disabled]
+    cursor: not-allowed
+
+// Links
+a
+  text-decoration-skip: objects
+  background-color: transparent
+  cursor: pointer
+  &:focus,
+  &:hover,
+  &:active
+    outline: 0 // Don't forget to set focus/hover/active styles individually!

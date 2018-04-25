@@ -1,0 +1,7 @@
+{
+  "name": "rails-project-template",
+  "private": true,
+  "dependencies": {
+    "redoc": "^2.0.0-alpha.17"
+  }
+}

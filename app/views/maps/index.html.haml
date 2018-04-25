@@ -1,0 +1,28 @@
+%h1 Maps
+
+.alert.alert-danger{role: "alert"}
+  Reload page if map is not displayed.
+=button_to 'Request all categories from Dataportal', '#', {id: "request-categories", class:"btn btn-default navbar-btn", type: "button", method: :get}
+
+.container
+  .row
+    .col-1
+      %select.form-control#category
+        %option heal
+        %option envi
+        %option agri
+        %option soci
+        %option educ
+        %option ener
+        %option just
+        %option tran
+        %option econ
+        %option tech
+        %option regi
+        %option geo
+      =button_to 'Anzeigen', '#', {id: "switch-category", class:"btn btn-default navbar-btn", type: "button", method: :get}
+
+= javascript_include_tag "maps"
+= content_tag :div, class: "federalState-data", data: {federal_states: @feature_collection, values: @federal_states_values} do
+  = puts "Passing the FederalStates Data to Javascript"
+#mapid

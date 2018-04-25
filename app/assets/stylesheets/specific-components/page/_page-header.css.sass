@@ -1,0 +1,18 @@
+.page-header
+  position: relative
+
+.page-header--heading
+  +visually-hidden
+
+.page-header--flash-message
+  position: absolute
+  z-index: z('flash-message')
+  width: 100%
+  padding: 15px 0
+  color: $color-text-inverted
+  &.error
+    background-color: $color-indication-error
+  &.notice
+    background-color: $color-indication-notice
+  &.success
+    background-color: $color-indication-success

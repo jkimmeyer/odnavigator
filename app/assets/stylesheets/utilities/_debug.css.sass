@@ -1,0 +1,17 @@
+// Switch this to true for debugging locally
+$debug-mode: false !default
+
+// Use this to output debugging information at the bottom of your page
+=debug-output($caption, $color: darkgrey)
+  @if $debug-mode
+    body::before
+      content: $caption
+      position: fixed
+      z-index: 100
+      right: 0
+      bottom: 0
+      padding: 5px 10px
+      font-size: 12px
+      line-height: 1
+      color: white
+      background-color: $color

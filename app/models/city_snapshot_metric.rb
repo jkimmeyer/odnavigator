@@ -1,0 +1,2 @@
+class CitySnapshotMetric < ApplicationRecord
+end

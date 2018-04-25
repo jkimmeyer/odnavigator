@@ -1,0 +1,28 @@
+.panel.panel-default
+  .panel-heading Data Apis
+  %table.table.table-stripped.table-bordered
+    %tr
+      %th Name
+      %th Url
+      %th Beschreibung
+      %th Status
+      %th Verfügbarkeit
+      %th Such Parameter
+    - @data_portals.each do |data_portal|
+      %tr
+        %td= data_portal.name
+        %td= data_portal.url
+        %td= data_portal.description
+        %td= data_portal.status
+        %td= data_portal.check_avaiability
+        %td= data_portal.search_param
+        - if data_portal.status == "pending"
+          %td
+            =link_to 'Decline API', data_portal_path(data_portal, "api[status]]" => "rejected"), {:method => :put, :confirm => "Sure?", class:"btn btn-default navbar-btn", type: "button"}
+            =link_to 'Accept API', data_portal_path(data_portal, "api[status]" => "accepted"), {:method => :put, :confirm => "Sure?", class:"btn btn-default navbar-btn", type: "button"}
+
+
+.container
+  .row
+    .col-md1
+      =link_to 'Add a new DataPortal', new_data_portal_path

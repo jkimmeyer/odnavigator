@@ -1,0 +1,69 @@
+// This is the typography manifest file where all typography styles are collected and named.
+// Do not throw a "font-size: 12px" somewhere into a stylesheet.
+
+// Font Stacks
+$font-stack-my-webfont: 'my-webfont', 'Helvetica Neue', Helvetica, Arial, sans-serif
+$font-stack-helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif
+$font-stack-monospaced: Consolas, 'Lucida Console', 'Andale Mono', 'Bitstream Vera Sans Mono', 'Courier New', Courier
+
+// My Webfont
+=font-my-webfont
+  font-family: $font-stack-my-webfont
+  font-weight: 400
+
+=font-my-webfont-italic
+  font-family: $font-stack-my-webfont
+  font-style: italic
+
+=font-my-webfont-bold
+  font-family: $font-stack-my-webfont
+  font-weight: 700
+
+=font-my-webfont-bold-italic
+  font-family: $font-stack-my-webfont
+  font-style: italic
+  font-weight: 700
+
+//Helvetica
+=font-helvetica-regular
+  font-family: $font-stack-helvetica
+  font-weight: 400
+
+=font-helvetica-bold
+  font-family: $font-stack-helvetica
+  font-weight: 700
+
+
+// Text-Mixins
+// -----------
+// All assigned typography styles must begin with 'text-' so you can spot them instantly as typography-mixins in your stylesheets. They're defined in clusters (Copy, Headlines etc.) and in alphabetical order.
+// Only use these mixins in your stylesheets for styling text like headlines, paragraphs etc.
+
+// Copy
+=text-copy-xs
+  font-size: 10px
+  line-height: (10px / 10px)
+
+=text-copy-s
+  +font-helvetica-regular
+  font-size: 14px
+  line-height: (20px / 14px)
+
+=text-copy-m($bold: false)
+  @if $bold
+    +font-helvetica-bold
+  @else
+    +font-helvetica-regular
+  font-size: 16px
+  line-height: (24px / 16px)
+
+// Headlines
+=text-headline-s
+  +font-my-webfont
+  font-size: 18px
+  line-height: (27px / 18px)
+
+=text-headline-m
+  +font-my-webfont
+  font-size: 20px
+  line-height: (30px / 20px)
