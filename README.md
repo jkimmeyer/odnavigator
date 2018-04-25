@@ -1,12 +1,15 @@
 # odnavigator
 Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen zur einfacheren Navigation bietet.
 
+### Alternativen
+- [opendatainception.io](https://opendatainception.io)
+- [data.opendatasoft.com](https://data.opendatasoft.com/pages/home/)
+- [opendatamonitor.eu](https://www.opendatamonitor.eu)
+- [offenedaten.de](https://www.offenedaten.de)
 
-
-# Praxisprojekt WS17/18 Johannes Kimmeyer - Medieninformatik TH KÃ¶ln
 
 ## Project Setup
-[Installation and Setup](https://github.com/jkimmeyer/Praxisprojekt/blob/master/doc/install.md)
+[Installation and Setup](https://github.com/jkimmeyer/odnavigator/blob/master/doc/install.md)
 
 ## Git Branching Model
 Use feature branches
@@ -16,6 +19,4 @@ After finishing a feature, create a pull request for master. Review the changes 
 
 ## Continuous integration & Code Quality Tools
 
-![Build Status](https://travis-ci.com/jkimmeyer/Praxisprojekt.svg?token=RNrpHhqDGiujTBgM6w2s&branch=master)
-
-## Others
+![Build Status](https://travis-ci.com/jkimmeyer/odnavigator.svg?token=RNrpHhqDGiujTBgM6w2s&branch=master)
