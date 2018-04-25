@@ -11,7 +11,7 @@ gem 'rails', '5.1.2'
 gem 'pg', '~> 0.18'
 gem 'bcrypt', '~> 3.1.7'
 gem 'puma', '~> 3.7'
-gem 'httparty' #Use HTTP-Party instead of excon for performance reason
+gem 'httparty'
 gem 'json'
 gem 'enumerize'
 gem 'sidekiq'

@@ -11007,3 +11007,71 @@
 [2018-04-24 17:06:21 +0200 Johannes-MBP.fritz.box (33515)] INFO : Doing deferred dependency-detection before Rack startup
 [2018-04-24 17:06:25 +0200 Johannes-MBP.fritz.box (33515)] ERROR : Invalid license key, please contact support@newrelic.com
 [2018-04-24 17:06:25 +0200 Johannes-MBP.fritz.box (33515)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] WARN : No configuration file found. Working directory = /Users/johanneskimmeier/Coding/odnavigator
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] WARN : Looked in these locations (based on defaults): /Users/johanneskimmeier/Coding/odnavigator/config/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/config/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/newrelic.yml, /Users/johanneskimmeier/.newrelic/newrelic.yml, /Users/johanneskimmeier/newrelic.yml
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] INFO : Environment: development
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] INFO : No known dispatcher detected.
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] INFO : Application: development
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2018-04-25 21:45:07 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing ActiveJob instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing ActiveRecord 5 instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Net instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing deferred Rack::Builder instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Rack::Builder middleware instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Rails 3+ middleware instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Redis Instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Sidekiq instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Rails 5 Action Cable instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Rails 5 Controller instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Installing Rails 5 view instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Finished instrumentation
+[2018-04-25 21:45:08 +0200 Johannes-MBP.fritz.box (52082)] INFO : Doing deferred dependency-detection before Rack startup
+[2018-04-25 21:45:21 +0200 Johannes-MBP.fritz.box (52082)] ERROR : Invalid license key, please contact support@newrelic.com
+[2018-04-25 21:45:21 +0200 Johannes-MBP.fritz.box (52082)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2018-04-25 21:46:28 +0200 Johannes-MBP.fritz.box (52082)] INFO : Starting Agent shutdown
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] WARN : No configuration file found. Working directory = /Users/johanneskimmeier/Coding/odnavigator
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] WARN : Looked in these locations (based on defaults): /Users/johanneskimmeier/Coding/odnavigator/config/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/config/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/newrelic.yml, /Users/johanneskimmeier/.newrelic/newrelic.yml, /Users/johanneskimmeier/newrelic.yml
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Environment: development
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : No known dispatcher detected.
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Application: development
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing ActiveJob instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing ActiveRecord 5 instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Net instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing deferred Rack::Builder instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Rack::Builder middleware instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Rails 3+ middleware instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Redis Instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Sidekiq instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Rails 5 Action Cable instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Rails 5 Controller instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Installing Rails 5 view instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Finished instrumentation
+[2018-04-25 21:47:16 +0200 Johannes-MBP.fritz.box (52621)] INFO : Doing deferred dependency-detection before Rack startup
+[2018-04-25 21:47:27 +0200 Johannes-MBP.fritz.box (52621)] ERROR : Invalid license key, please contact support@newrelic.com
+[2018-04-25 21:47:27 +0200 Johannes-MBP.fritz.box (52621)] ERROR : Visit NewRelic.com to obtain a valid license key, or to upgrade your account.
+[2018-04-25 21:52:59 +0200 Johannes-MBP.fritz.box (52621)] INFO : Starting Agent shutdown
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Starting the New Relic agent version 4.1.0.333 in "development" environment.
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : To prevent agent startup add a NEW_RELIC_AGENT_ENABLED=false environment variable or modify the "development" section of your newrelic.yml.
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] WARN : No configuration file found. Working directory = /Users/johanneskimmeier/Coding/odnavigator
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] WARN : Looked in these locations (based on defaults): /Users/johanneskimmeier/Coding/odnavigator/config/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/config/newrelic.yml, /Users/johanneskimmeier/Coding/odnavigator/newrelic.yml, /Users/johanneskimmeier/.newrelic/newrelic.yml, /Users/johanneskimmeier/newrelic.yml
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Environment: development
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : No known dispatcher detected.
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Application: development
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] WARN : No license key found. This often means your newrelic.yml file was not found, or it lacks a section for the running environment, 'development'. You may also want to try linting your newrelic.yml to ensure it is valid YML.
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing ActiveJob instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing ActiveRecord 5 instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Net instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing deferred Rack::Builder instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Rack::Builder middleware instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Rails 3+ middleware instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Redis Instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Sidekiq instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Rails 5 Action Cable instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Rails 5 Controller instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Installing Rails 5 view instrumentation
+[2018-04-25 21:53:22 +0200 Johannes-MBP.fritz.box (52863)] INFO : Finished instrumentation

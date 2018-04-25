@@ -32,7 +32,8 @@ module Harmonizer
       end
     end
     @results["city_id"] = city_id
-    return @results
+    puts @results
+    puts "success" if Dataset.create(@results)
   end
 
   def handle_resources(resources)

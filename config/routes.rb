@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   get 'maps/index'
-
   # see http://guides.rubyonrails.org/routing.html
-  root to: 'main#index'
+  root to: 'maps#index'
   resources :data_portals
   get 'maps/request_categories', to: 'maps#request_categories'
   get 'federal_states/index'
