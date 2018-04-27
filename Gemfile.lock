@@ -65,7 +65,6 @@ GEM
       capybara (>= 1.0, < 3)
       launchy
     choice (0.2.0)
-    ckan (0.0.3)
     cliver (0.3.2)
     clockwork (2.0.3)
       tzinfo
@@ -352,7 +351,6 @@ DEPENDENCIES
   capybara
   capybara-email
   capybara-screenshot
-  ckan (~> 0.0.3)
   clockwork (~> 2.0, >= 2.0.3)
   database_cleaner
   dotenv-rails

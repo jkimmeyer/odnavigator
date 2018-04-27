@@ -16,9 +16,7 @@ gem 'json'
 gem 'enumerize'
 gem 'sidekiq'
 gem 'rack-cors', :require => 'rack/cors'
-gem 'ckan', '~> 0.0.3'
 gem 'clockwork', '~> 2.0', '>= 2.0.3'
-
 
 # Frontend
 gem 'hamlit-rails'

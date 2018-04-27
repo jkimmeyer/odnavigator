@@ -8,13 +8,10 @@ class CityPortal < ApplicationRecord
   belongs_to :data_portal
   CACHE_POLICY = lambda { 3.day.ago }
   validates :city, uniqueness: {scope: :data_portal}
-  # TODO Save response as json
-
 
   # Work with yield and modulize this request pattern.
   def get_all_request
     request_url = self.data_portal.url + self.data_portal.search_param
-    # this is a bad pattern - dont allow double a city on one api
     request_url += self.city.name if self.data_portal.cities.count > 1
 
     # You can put this also in a module i think.
