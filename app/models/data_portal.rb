@@ -10,7 +10,7 @@ class DataPortal < ApplicationRecord
 
   # Status can just take one of these states.
   enumerize :status, in: %w[pending accepted rejected], default: 'pending'
-  validates_presence_of :name, :url, :description, :search_param, :result_store_key
+  validates_presence_of :name, :url, :description, :search_param
   validates_uniqueness_of :url
 
   # Check if API is avaiable.

@@ -19,7 +19,7 @@ var geojsonMarkerOptions = {
     color: "#000",
     weight: 1,
     opacity: 1,
-    fillOpacity: 0.8
+    fillOpacity: 1
 };
 
 //Method that returns color based on percentage
@@ -44,25 +44,24 @@ function getDatasetValuesByName(name) {
   return datasetValues[name];
 }
 
-// Styles for a feature
-// function style(feature) {
-//     return {
-//         fillColor: getColor(getDatasetValuesByName(feature.properties.GEN)),
-//         weight: 2,
-//         opacity: 1,
-//         color: '#bbbbbb',
-//         dashArray: '3',
-//         fillOpacity: 0.7
-//     };
-// }
+//Styles for a feature
+function style(feature) {
+    return {
+        fillColor: getColor(Math.random()*101),// getColor(getDatasetValuesByName(feature.properties.GEN)),
+        weight: 1,
+        color: '#CCCCCC',
+        opacity: 1,
+        fillOpacity: 1
+    };
+}
 
 // This happens if you hover over a feature.
 function highlightFeature(e) {
     var layer = e.target;
 
     layer.setStyle({
-        weight: 5,
-        color: '#FFFFFF',
+        weight: 3,
+        color: '#CCCCCC',
         dashArray: '',
         fillOpacity: 0.7
     });
@@ -81,7 +80,6 @@ function resetHighlight(e) {
 
 //actions added to all federal_state features
 function onEachFeature(feature, layer) {
-    console.log(feature);
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
@@ -99,14 +97,14 @@ function zoomOut(e) {
     mapid.fitBounds(geojson.getBounds());
 }
 
-//actions added to all city features
-// function onEachCityFeature(feature, layer) {
-//   layer.on({
-//     mouseover: highlightFeature,
-//     mouseout: resetHighlight,
-//     click: zoomOut
-//   });
-// }
+// actions added to all city features
+function onEachCityFeature(feature, layer) {
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+    click: zoomOut
+  });
+}
 
 // Send ajax request to the server and render the data again.
 function switchCategory(){
@@ -168,8 +166,7 @@ $(document).on('turbolinks:load',  function (){
   //Access Token for Mapbox(mapbox.de)
   var mapboxAccessToken = "pk.eyJ1IjoiamtpbW1leWVyIiwiYSI6ImNqYTQ1ODFhbmEwangzM3M0N3F5MnI2MzAifQ.Cioxdl3kozpPOKAL9vxMQA";
   mapid = L.map('mapid').setView([52, 10], 6);
-
-  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + mapboxAccessToken, {
+  L.tileLayer('https://api.mapbox.com/styles/v1/jkimmeyer/cjgj1zk8k00602rs2j6rh1rxu/tiles/256/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.streets',
@@ -179,11 +176,13 @@ $(document).on('turbolinks:load',  function (){
   var markers = L.
 
   geojson = L.geoJson(statesData, {
-    onEachFeature: function (feature, layer) {
-      var markerItem = L.divIcon({className: 'feature--marker', iconSize: [20, 20]})
-      var featureMarker = L.marker(layer._bounds.getCenter(), {icon: markerItem});
-      featureMarker.addTo(mapid);
-    }
+    style: style,
+    onEachFeature: onEachFeature,
+    // function (feature, layer) {
+    //   var markerItem = L.divIcon({className: 'feature--marker', iconSize: [10, 10]})
+    //   var featureMarker = L.marker(layer._bounds.getCenter(), {icon: markerItem});
+    //   featureMarker.addTo(mapid);
+    //  }
   }).addTo(mapid);
 
   //Infobox for the upper right corner

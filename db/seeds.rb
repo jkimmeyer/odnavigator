@@ -22,41 +22,35 @@ data_hash_cities["features"].each do |feature|
 end
 
 # Create a Model Instance for the Metadata of FederalStates and Citys
-FeatureCollection.create(referencing:"FederalStates", metadata: meta_data_federal_states)
-FeatureCollection.create(referencing:"Cities", metadata: meta_data_cities)
+# FeatureCollection.create(referencing:"FederalStates", metadata: meta_data_federal_states)
+# FeatureCollection.create(referencing:"Cities", metadata: meta_data_cities)
 
 # Create Instance for every FederalState with the feature and the "Regionalschlüssel" as an id
 data_hash_federal_states["features"].each do |feature|
-  FederalState.create(name: feature["properties"]["GEN"], id: feature["properties"]["RS"].to_i)
-  FederalStateFeature.create(feature: feature, federal_state_id: feature["properties"]["RS"].to_i, debkg_id: feature["properties"]["DEBKG_ID"])
+  FederalState.create(name: feature["properties"]["GEN"], id: feature["properties"]["RS"].to_i, feature: feature, debkg_id: feature["properties"]["DEBKG_ID"])
 end
 
 # Create Instance for every City with the feature and a reference to the "Regionalschlüssel" of the appertaining FederalState"
 cities_list.each do |feature|
-  City.create(id: feature["properties"]["RS"], name: feature["properties"]["GEN"], federal_state_id: feature["properties"]["RS"][0..1].to_i)
-  CityFeature.create(feature: feature, city_id: feature["properties"]["RS"].to_i, debkg_id: feature["properties"]["DEBKG_ID"])
+  City.create(id: feature["properties"]["RS"], name: feature["properties"]["GEN"], federal_state_id: feature["properties"]["RS"][0..1].to_i, feature: feature, debkg_id: feature["properties"]["DEBKG_ID"])
 end
 
 # Some default data Portals. So the Application never starts empty.
 data_portal_list = [
- [ "https://www.govdata.de/ckan/api/3/action", "GovDataDe", "Open Data Portal von Deutschland", "/package_search?q=", "results", "groups"],
- [ "http://offenedaten-koeln.de/api/3/action", "Offene Daten Köln", "Open Data Portal der Stadt Köln", "/current_package_list_with_resources", "result", "tags" ],
- [ "https://opendata.bonn.de/api/3/action", "Offene Daten Bonn", "Open Data Portal der Stadt Bonn", "/current_package_list_with_resources", "result", "tags"],
- [ "http://offenedaten.aachen.de/api/3/action", "Offene Daten Aachen", "Open Data Portal der Stadt Aachen", "/current_package_list_with_resources", "results", "groups"]
+ [ "http://offenedaten-koeln.de/api/3/action", "Offene Daten Köln", "Open Data Portal der Stadt Köln", "/current_package_list_with_resources"],
+ [ "https://opendata.bonn.de/api/3/action", "Offene Daten Bonn", "Open Data Portal der Stadt Bonn", "/current_package_list_with_resources"],
+ [ "http://offenedaten.aachen.de/api/3/action", "Offene Daten Aachen", "Open Data Portal der Stadt Aachen", "/current_package_list_with_resources"]
 ]
 
 # Create the Data Apis.
-data_portal_list.each do |url, name, description, search_param, result_store_key, category_key|
- DataPortal.create( name: name, url: url, description: description, search_param: search_param, result_store_key: result_store_key, category_key: category_key)
+data_portal_list.each do |url, name, description, search_param|
+ DataPortal.create( name: name, url: url, description: description, search_param: search_param)
 end
 
 city_portals_list = [
   [ "53150000000", 1 ],
-  [ "53140000000", 1 ],
-  [ "53340002002", 1 ],
-  [ "53150000000", 2 ],
-  [ "53140000000", 3 ],
-  [ "53340002002", 4 ]
+  [ "53140000000", 2 ],
+  [ "53340002002", 3 ]
 ]
 
 city_portals_list.each do |city_id, data_portal_id|

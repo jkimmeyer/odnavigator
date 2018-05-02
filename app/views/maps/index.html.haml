@@ -1,5 +1,7 @@
 %h1 Maps
 
+%progress{value: @city_with_portals, max: @city_count}
+
 .alert.alert-danger{role: "alert"}
   Reload page if map is not displayed.
 =button_to 'Request all categories from Dataportal', '#', {id: "request-categories", class:"btn btn-default navbar-btn", type: "button", method: :get}

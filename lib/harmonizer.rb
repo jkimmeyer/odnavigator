@@ -1,6 +1,6 @@
 module Harmonizer
   # Haben diese Sachen bei den APIS die gleiche Bedeutung? Dieses "Matching auf den richtigen Tag nur bei Kategorien machen"
-  NEEDED_DATASET_VALUES = ['id', 'title', 'url', 'maintainer', {'category': ['tags', 'groups']}, 'license_title'].freeze
+  NEEDED_DATASET_VALUES = ['id', 'title','url', {'category': ['tags', 'groups']}, 'maintainer'].freeze
   NEEDED_DATARESOURCE_VALUES = ['id', 'url', 'format', 'created', 'license']
   # man bekommt zunächst einmal das Array mit den ganzen Objekten. Also der Response. lässt sich nicht eindeutig identifizieren. Merkmal: response und darunter Array.
   # man hat die ganzen Datensätze und möchte dann die Attribute aus dem Datensatz übernehmen, die ich übernehmen kann.
@@ -16,12 +16,13 @@ module Harmonizer
         if f.is_a? Hash
           @results[f.keys.first] = Array.new
           f.values.flatten.each do |s|
-            next if dataset.fetch(s, nil)
+            next unless dataset.fetch(s, nil)
             @results[f.keys.first] += [{s => dataset.fetch(s, nil)}]
           end
           @results["missing_keys"] << f unless @results[f.keys.first]
         else
-          @results[f] = dataset.fetch(f)
+          @results['dataset_id'] = dataset.fetch(f) if (f == 'id')
+          @results[f] = dataset.fetch(f) if (f != 'id')
         end
       rescue KeyError
         # Reports the missing key in the dataset.
@@ -32,29 +33,29 @@ module Harmonizer
       end
     end
     @results["city_id"] = city_id
-    puts @results
+    #puts @results
     puts "success" if Dataset.create(@results)
   end
 
   def handle_resources(resources)
     @results = Hash.new
-    resources.each do |resource|
+    resources&.each do |resource|
       NEEDED_DATARESOURCE_VALUES.each do |f|
         begin
-          next if resource.fetch(f, nil)
+          next unless resource.fetch(f, nil)
           @results[f] = resource.fetch(f, nil)
         rescue KeyError => e
           puts e
           # Reports the missing key in the dataset.
           # It seems to be useful, to seperately save and handle the resources.
         rescue NoMethodError=> e
-          skip!
           puts e
         end
       end
     end
-  @resource = DataResource.new(@results)
-  @resource["dataset_id"] = self.data_portal_id
-  @resource.save
+  #@resource = DataResource.new(@results)
+  @results["dataset_id"] = self.data_portal_id
+  puts @results
+  #@resource.save
   end
 end

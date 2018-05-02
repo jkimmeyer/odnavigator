@@ -27,3 +27,49 @@
         responses:
           "200":
             description: "Map"
+    /symbols:
+      get:
+        summary: "Symbols for cities"
+        description: "Gets all symbols"
+        parameters:
+          - in: query
+            name: year
+            type: number
+            required: true
+            example: 2018
+          - in: query
+            name: week
+            type: number
+            required: true
+            example: 52
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: A list of all symbols for  the cities.
+            schema:
+              properties:
+                symbols:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Symbols'
+
+  definitions:
+    Symbols:
+      type: object
+      properties:
+        ds100:
+          type: string
+          example: EAML
+        name:
+          type: string
+          example: Münster-Amelsbüren
+        federal_state:
+          type: string
+          example: NW
+        count:
+          type: number
+          example: 42
+        is_anomaly:
+          type: boolean
+          example: true
