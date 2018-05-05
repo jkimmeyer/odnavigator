@@ -21,55 +21,194 @@
             description: "Documentation"
     /maps:
       get:
-        description: "Gets the map"
-        produces:
-          - "txt/x-yaml"
-        responses:
-          "200":
-            description: "Map"
-    /symbols:
-      get:
-        summary: "Symbols for cities"
-        description: "Gets all symbols"
-        parameters:
-          - in: query
-            name: year
-            type: number
-            required: true
-            example: 2018
-          - in: query
-            name: week
-            type: number
-            required: true
-            example: 52
+        description: "Returns the map"
         produces:
           - "application/json"
         responses:
           "200":
-            description: A list of all symbols for  the cities.
+            description: "Map"
             schema:
               properties:
-                symbols:
+                city_features:
                   type: array
                   items:
-                    $ref: '#/definitions/Symbols'
+                    $ref: '#/definitions/Features'
+
+    /dataportals:
+      get:
+        summary: "Returns all dataportals"
+        description: "Returns all dataportals with the city name and the apparting metrics."
+        parameters:
+          - in: query
+            name: metric
+            type: string
+            required: true
+            example: quality
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: A list of all dataportals.
+            schema:
+              properties:
+                data_portals:
+                  type: array
+                  items:
+                    $ref: '#/definitions/DataPortals'
+
+    /dataportals/marker:
+      get:
+        summary: "Returns all markers for the dataportal"
+        description: "Returns all dataportals with the marker and the appertaining metric value."
+        parameters:
+          - in: query
+            name: metric
+            type: string
+            required: true
+            example: quality
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: A list of all markers, their cities and their appertaining metric value.
+            schema:
+              properties:
+                markers:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Markers'
+
+    /dataportals/details:
+      get:
+        summary: "Details of a data portal"
+        description: "Returns the details of a data portal including Metrics and Name."
+        parameters:
+          - in: query
+            name: metric
+            type: string
+            required: true
+            example: quality
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: A list of all details of a dataportal.
+            schema:
+              properties:
+                details:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Details'
+
+    /cities:
+      get:
+        summary: "Returns all cities"
+        description: "Returns all cities matching a query."
+        parameters:
+          - in: query
+            name: city
+            type: string
+            required: true
+            example: Mün
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: "A list of all cities matching the query."
+            schema:
+              properties:
+                cities:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Cities'
+
+    /categories:
+      get:
+        summary: "Returns Categories"
+        description: "Gets all the categories, that are currently avaiable."
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: A list of all categories.
+            schema:
+              properties:
+                categories:
+                  type: array
+                  items:
+                    $ref: '#/definitions/Categories'
+    /progress:
+      get:
+        summary: "Current progress"
+        description: "Returns the current progress of the open data landscape. "
+        produces:
+          - "application/json"
+        responses:
+          "200":
+            description: Returns the current state of dataportals.
+            schema:
+              properties:
+                progress:
+                  type: object
+                  items:
+                    $ref: '#/definitions/Progress'
 
   definitions:
-    Symbols:
+    Features:
       type: object
       properties:
-        ds100:
+        feature:
+          type: object
+          example: expand
+
+    Cities:
+      type: string
+      example:
+        - Münster
+        - München
+    Markers:
+      type: object
+      properties:
+        city:
           type: string
-          example: EAML
+          example: Münster
+        metric:
+          type: object
+          properties:
+            name:
+              type: string
+              example: Qualität
+
+    Progress:
+      type: object
+      properties:
+        cities:
+          type: number
+          example: 80
+        cities_with_dataportal:
+          type: number
+          example: 30
+
+    Categories:
+      type: object
+      properties:
         name:
           type: string
-          example: Münster-Amelsbüren
-        federal_state:
+          example: Geodaten
+
+    DataPortals:
+      type: object
+      properties:
+        city:
           type: string
-          example: NW
-        count:
-          type: number
-          example: 42
-        is_anomaly:
-          type: boolean
-          example: true
+          example: Münster
+        platform:
+          type: string
+          example: "https://opendata.bonn.de"
+
+    Details:
+      type: object
+      properties:
+        name:
+          type: string
+          example: Hello
