@@ -54,6 +54,6 @@ $horizontal-map: (left: flex-start, center: center, right: flex-end, space-betwe
     min-width: 0
   @else
     flex-grow: 0
-    width: 100% * (#{$column-span} / #{$total-columns})
+    width: calc(100% * (#{$column-span} / #{$total-columns}))
 
   flex-shrink: 0

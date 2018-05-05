@@ -9,21 +9,12 @@
 
 // Libary Imports
 //---------------
-@import "bootstrap-sprockets"
-@import "bootstrap"
+// @import "bootstrap-sprockets"
+// @import "bootstrap"
 
 // Utility Imports
 //----------------
-@import utilities/center
-@import utilities/clearfix
-@import utilities/debug
-@import utilities/ellipsis
-@import utilities/font-smoothing
 @import utilities/grid
-@import utilities/hide-text
-@import utilities/layering
-@import utilities/responsify
-@import utilities/visually-hidden
 
 // Global Imports
 //---------------
@@ -50,11 +41,28 @@
 @import specific-components/page/page-footer
 @import specific-components/page/page-header
 
-#mapid
-  +grid(top, right)
-  +column(10)
-  //  width: 60vw
-  height: 100vh
+.content
+  @include grid(top, space-between)
+
+.left-side-bar
+  +column(5)
+  padding: 20px
+
+.main--map
+  +column(6)
+  // width: 100vh
+  height: 93.5vh
+
+.metric--bar
+  +column(1)
+  +grid(center, right)
+  border: 1px solid black
+  border-width: 0 1px 0 1px
+  height: 93.5vh
+
+.metric--item
+  +column(12)
+  text-align: center
 
 .feature--marker
   @include flex-center
@@ -62,3 +70,85 @@
   border-radius: 50%
   color: green
   background-color: blue
+
+.navbar-nav
+  +grid(top, left)
+  background-color: grey
+
+.navigation--item
+  padding: 15px
+  text-decoration-style: none
+
+.form-control
+  -moz-appearance: none
+  -webkit-appearance: none
+  appearance: none
+  width: 40%
+  padding: 10px 10px
+  outline: none
+  border: 1px solid black
+  cursor: pointer
+  background: url('chevron-down') no-repeat 97% 50% #ffffff
+  background-size: 24px 24px
+
+.blue--100--saturation
+  background-color: hsl(132, 100%, 50%)
+.blue--90--saturation
+  background-color: hsl(132, 100%, 58%)
+.blue--80--saturation
+  background-color: hsl(132, 100%, 66%)
+.blue--70--saturation
+  background-color: hsl(132, 100%, 74%)
+.blue--60--saturation
+  background-color: hsl(132, 100%, 82%)
+.blue--50--saturation
+  background-color: hsl(132, 100%, 90%)
+.blue--40--saturation
+  background-color: hsl(132, 100%, 98%)
+.blue--30--saturation
+  background-color: hsl(132, 100%, 100%)
+.blue--20--saturation
+  background-color: hsl(132, 100%, 100%)
+.blue--10--saturation
+  background-color: hsl(132, 100%, 100%)
+.blue--5--saturation
+  background-color: hsl(132, 100%, 100%)
+.white
+  background-color: rgba(0,0,0,1.0)
+
+.button
+  border: 1px solid black
+  cursor: pointer
+  background: none
+  padding: 10px
+  margin: 10px 0
+
+.progress--bar
+  border: 1px solid black
+  width: 50%
+  margin: 0 0 10px 0
+  border-radius: 15px
+
+.bar
+  background-color: blue
+  height: 20px
+  margin: 2px
+  border-radius: 15px
+
+.details
+  visibility: visible
+  opacity: 1
+  transition: visibility 0s ease-in 0s, opacity 0.5s ease-in
+
+.hide
+  visibility: hidden
+  opacity: 0
+  // last property in visibilty transition is the delay. You need the delay for the opacity-Transition(visibility can't fade in or out)
+
+.search
+  border: 1px solid black
+  padding: 8px
+
+// @-moz-keyframes load
+//   from {width:3%}
+//   to {width:80%}
