@@ -10,7 +10,7 @@ file = File.read(File.join(Rails.root, 'app', 'assets', 'files', 'gemeinden_simp
 data_hash_cities = JSON.parse(file)
 
 # take important metadata of the geojson files that must be avaiable for every city and federal_state.
-meta_data_federal_states = data_hash_federal_states.reject {|y| y == "features"}
+puts meta_data_federal_states = data_hash_federal_states.reject {|y| y == "features"}
 meta_data_cities = data_hash_cities.reject{|y| y== "features"}
 
 # build a Hash with every City that has a population that is bigger than 100.000 people and its appertaining feature

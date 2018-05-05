@@ -68,30 +68,30 @@ ActiveRecord::Schema.define(version: 20180501220618) do
   end
 
   create_table "data_resources", force: :cascade do |t|
-    t.string "data_resources_id"
+    t.string "unique_identifier"
     t.string "title"
+    t.string "format"
     t.string "url"
-    t.bigint "datasets_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "formats", default: [], array: true
     t.integer "year"
-    t.string "licenses", default: [], array: true
     t.bigint "dataset_id"
     t.index ["dataset_id"], name: "index_data_resources_on_dataset_id"
-    t.index ["datasets_id"], name: "index_data_resources_on_datasets_id"
   end
 
   create_table "datasets", force: :cascade do |t|
-    t.string "dataset_id"
+    t.string "unique_identifier"
     t.text "category", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "url"
     t.integer "quality"
+    t.string "package_search_title"
+    t.bigint "city_portal_id"
     t.text "missing_keys", default: [], array: true
     t.string "maintainer"
+    t.index ["city_portal_id"], name: "index_datasets_on_city_portal_id"
   end
 
   create_table "federal_states", force: :cascade do |t|
