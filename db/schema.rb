@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180501220618) do
+ActiveRecord::Schema.define(version: 20180505114456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,13 +58,16 @@ ActiveRecord::Schema.define(version: 20180501220618) do
     t.datetime "updated_at", null: false
     t.string "url"
     t.string "description"
-    t.string "version"
     t.string "status"
     t.boolean "avaiability"
     t.string "search_param"
-    t.string "result_store_key"
-    t.string "category_key"
-    t.integer "quality"
+    t.decimal "quality"
+    t.integer "sum_of_datasets"
+    t.decimal "format_quality"
+    t.decimal "openness_quality"
+    t.decimal "access_quality"
+    t.decimal "completeness_quality"
+    t.json "category_counts"
   end
 
   create_table "data_resources", force: :cascade do |t|
@@ -74,7 +77,6 @@ ActiveRecord::Schema.define(version: 20180501220618) do
     t.string "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "year"
     t.bigint "dataset_id"
     t.index ["dataset_id"], name: "index_data_resources_on_dataset_id"
   end
@@ -86,11 +88,13 @@ ActiveRecord::Schema.define(version: 20180501220618) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "url"
-    t.integer "quality"
+    t.decimal "quality"
     t.string "package_search_title"
     t.bigint "city_portal_id"
     t.text "missing_keys", default: [], array: true
     t.string "maintainer"
+    t.string "license"
+    t.decimal "completeness"
     t.index ["city_portal_id"], name: "index_datasets_on_city_portal_id"
   end
 
