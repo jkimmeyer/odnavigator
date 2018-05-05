@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505114456) do
+ActiveRecord::Schema.define(version: 20180505115306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,8 @@ ActiveRecord::Schema.define(version: 20180505114456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "dataset_id"
+    t.datetime "metadata_created"
+    t.datetime "metadata_modified"
     t.index ["dataset_id"], name: "index_data_resources_on_dataset_id"
   end
 
@@ -95,6 +97,8 @@ ActiveRecord::Schema.define(version: 20180505114456) do
     t.string "maintainer"
     t.string "license"
     t.decimal "completeness"
+    t.datetime "metadata_created"
+    t.datetime "metadata_modified"
     t.index ["city_portal_id"], name: "index_datasets_on_city_portal_id"
   end
 
