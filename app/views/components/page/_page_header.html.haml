@@ -1,14 +1,11 @@
 %nav.navbar.navbar-default
-  .container-fluid
-    .navbar-header
-      %a.navbar-brand{href: "#"} Open Data Monitor
-
-    %ul.nav.navbar-nav
-      %li.active
-        =link_to "Home", root_path
-      %li
-        =link_to "Map", maps_index_path
-      %li
-        =link_to "Data APIs", data_portals_path
-      %li
-        =button_to "Admin-Login", data_portals_path, {class:"btn btn-default navbar-btn", type: "button", method: :get}
+  %ul.nav.navbar-nav
+    %li.navigation--item ODNavigator
+    %li.navigation--item.active
+      =link_to "Home", root_path
+    %li.navigation--item
+      =link_to "Map", maps_index_path
+    %li.navigation--item
+      =link_to "Data APIs", data_portals_path
+    %li.navigation--item
+      =button_to "Admin-Login", data_portals_path, {class:"btn btn-default navbar-btn", type: "button", method: :get}

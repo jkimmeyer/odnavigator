@@ -1,28 +1,28 @@
 class MapsController < ApplicationController
   def index
     # Regenerate the GEOJSON feature collections
-    metadata = FeatureCollection.find_by(referencing: "FederalStates")
+    metadata = {"type"=>"FeatureCollection", "crs"=>{"type"=>"name", "properties"=>{"name"=>"urn:ogc:def:crs:OGC:1.3:CRS84"}}, "source"=>"© GeoBasis-DE / BKG 2013 (Daten verändert)"}
     features = []
 
     # Add the features of all federal_states
-    CityFeature.all.each do |federal_state|
-      features << federal_state.feature
+    City.all.each do |city|
+      features << city.feature
     end
 
     # FeatureCollection is passed to the view
     @feature_collection = Hash.new
-    @feature_collection = metadata.metadata
+    @feature_collection = metadata
     @feature_collection["features"] = features
 
     #FederalStateValues are the sum of the datasets per federal_state. Also passed to the view
-    federal_state_datasets = Hash.new
-    City.all.each do |federal_state|
-      federal_state_datasets[federal_state.name] = federal_state.sum_up_datasets
+    city_datasets = Hash.new
+    City.all.each do |city|
+      city_datasets[city.name] = 0
     end
 
-    @federal_states_values = Hash.new
-    federal_state_datasets.each do |key, value|
-      @federal_states_values[key] = value.to_f/federal_state_datasets.values.max * 100
+    @city_values = Hash.new
+    city_datasets.each do |city, metric|
+      @city_values[city] = metric.to_f/city_datasets.values.max * 100
     end
 
     puts @federal_states_values
@@ -42,8 +42,8 @@ class MapsController < ApplicationController
     # TODO Refactor metrics etc. to Helper Methods.
     # Same as above(#index), but for the citys of a federal_state.
     cities = []
-    metadata = FeatureCollection.find_by(referencing: "Cities")
-    CityFeature.where(city_id: City.where("federal_state_id = #{params[:id]}").ids).each do |city|
+    metadata = {"type"=>"FeatureCollection", "crs"=>{"type"=>"name", "properties"=>{"name"=>"urn:ogc:def:crs:OGC:1.3:CRS84"}}, "source"=>"© GeoBasis-DE / BKG 2013 (Daten verändert)"}
+    City.where(city_id: City.where("federal_state_id = #{params[:id]}").ids).each do |city|
       cities << city.feature
     end
 
