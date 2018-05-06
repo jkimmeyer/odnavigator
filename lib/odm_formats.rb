@@ -1,4 +1,4 @@
-class OdmFormats
+module OdmFormats
   def get_machine_readable
     machine_readable = [
       'cdf',
