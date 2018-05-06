@@ -10,24 +10,15 @@ class DataPortal < ApplicationRecord
 
   # Status can just take one of these states.
   enumerize :status, in: %w[pending accepted rejected], default: 'pending'
-  validates_presence_of :name, :url, :description, :search_param
+  validates_presence_of :name, :url, :search_param
   validates_uniqueness_of :url
 
-  # Check if API is avaiable.
-  def check_avaiability
-    request_url = self.url + '/site_read'
-    ApiRequest.cache(request_url, CACHE_POLICY) do
-      begin
-        response = HTTParty.get(request_url)
-      rescue HTTParty::Error
-        update_attribute(:avaiability, false)
-      rescue StandardError
-        update_attribute(:avaiability, false)
-      else
-        update_attribute(:avaiability, response["result"]) if response.code < 400
-      end
-    end
-    self.avaiability
+  def current_metric(metric)
+    return self[metric]
+  end
+
+  def details
+    return self
   end
 
 private

@@ -7,9 +7,4 @@ class City < ApplicationRecord
   validates_uniqueness_of :name
   validates_presence_of :name
 
-  # You could also delete this, since its simple logic. Just hold for consistency.
-  def sum_up_datasets
-    self.datasets.count
-  end
-
 end
