@@ -2,7 +2,7 @@ module Api
   class DocumentationController < ApplicationController
     layout false
     skip_before_action :verify_authenticity_token
-    
+
     def show
       respond_to do |format|
         format.html { render :show }
