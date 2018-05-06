@@ -1,13 +1,22 @@
 .button
-  // Add modifiers separated by category. These categories must be mutally exclusive which means that you're not allowed to chain modifiers of the same category to avoid specificity issues.
+  margin: 10px 0
+  border: 1px solid $black
+  padding: 10px
+  background: none
+  cursor: pointer
 
-  // Examples:
-  // State
-  &.active
-  &.inactive
-  // Size
-  &.narrow
-  &.wide
-  // Obtrusiveness
-  &.obtrusive
-  &.unobtrusive
+.form-control
+  appearance: none
+  -moz-appearance: none
+  -webkit-appearance: none
+  border: 1px solid $black
+  padding: 10px
+  background: url('chevron-down') no-repeat 97% 50% $white
+  background-size: 24px 24px
+  cursor: pointer
+  outline: none
+  width: 40%
+
+.search
+  border: 1px solid $black
+  padding: 8px

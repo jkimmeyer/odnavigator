@@ -1,7 +1,6 @@
 // This happens if you hover over a feature.
 function highlightFeature(e) {
     var layer = e.target;
-
     layer.setStyle({
         weight: 3,
         color: '#CCCCCC',
@@ -21,15 +20,18 @@ function resetHighlight(e) {
     info.update();
 }
 
-function showDetails(feature, layer){
-  $('.details').toggleClass("hide");
-}
-
-//actions added to all federal_state features
+//actions added to each feature
 function onEachFeature(feature, layer) {
     layer.on({
         mouseover: highlightFeature,
         mouseout: resetHighlight,
-        click: showDetails
+        click:
+        function(target){
+          if ($('.details').children().length > 0) {
+            hideDetails(target)
+          } else {
+            showDetails(target)
+          }
+        }
     });
 }

@@ -1,5 +1,6 @@
 //Method that returns color based on percentage
 function getColor(d) {
+    if ( d == undefined ) d = 0;
     return  d >    98 ?  'blue--100--saturation' :
             d >    90 ?  'blue--90--saturation' :
             d >    80 ?  'blue--80--saturation' :
@@ -12,6 +13,14 @@ function getColor(d) {
             d >    10 ?  'blue--10--saturation' :
             d >     0 ?  'blue--5--saturation' :
                          'white';
+}
+
+function style(feature) {
+    return {
+        weight: 1,
+        color: '#000',
+        opacity: 0.4,
+    };
 }
 
 // Returns metric of category according to the name

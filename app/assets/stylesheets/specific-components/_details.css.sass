@@ -1,0 +1,9 @@
+.details
+  visibility: visible
+  opacity: 1
+  // last property in visibilty transition is the delay. You need the delay for the opacity-Transition(visibility can't fade in or out)
+  transition: visibility 0s ease-in 0s, opacity 0.5s ease-in
+
+.hide
+  visibility: hidden
+  opacity: 0
