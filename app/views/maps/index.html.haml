@@ -1,7 +1,7 @@
 .content
   .left-side-bar
-    .progress--bar
-      .bar.green{value: @city_with_portals, max: @city_count}
+    %progress{value: @progress['value'], max: @progress['max']}
+    .div="#{@progress['value']} von #{@progress['max']} Großstädten besitzen bereits ein Open Data Portal"
     .select--category
       %select.form-control#category
         %option heal
@@ -17,19 +17,17 @@
         %option regi
         %option geo
       =button_to 'Anzeigen', '#', {id: "switch-category", class:"button", method: :get}
-    =button_to 'Request all categories from Dataportal', '#', {id: "request-categories", class:"button", method: :get}
 
     = content_tag :div, class: "city-data", data: {cities: @feature_collection, city_values: @city_values} do
       = puts "Passing the City Data to Javascript"
-    .details.hide Hello
-
-  .metric--bar
-    .metric--item Anzahl
-    .metric--item Lesbarkeit
-    .metric--item Offene Lizenzen
-    .metric--item Offene Formate
-    .metric--item Vollständigkeit
-    .metric--item Gesamtqualität
+    .details.hide
+    %select.form-control#metric
+      %option openness_quality
+      %option access_quality
+      %option quality
+      %option sum_of_datasets
+      %option format_quality
+      %option completeness_quality
 
   .main--map#mapid
 

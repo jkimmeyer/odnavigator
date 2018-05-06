@@ -19,12 +19,8 @@
       %div
         = raw Rails.application.assets.find_asset('icon-sprite.svg')
 
-    = render partial: 'components/skip_links'
-
     .page
       = render partial: 'components/page/page_header'
 
       %main#page-main.page-main{tabindex: '-1'}
         = yield
-
-      = render partial: 'components/page/page_footer'
