@@ -26,3 +26,4 @@ If there is no database, run ```createdb``` in shell. Afterwards start the postg
 8. Run ```rake db:migrate```
 9. Run ```rake db:migrate RAILS_ENV=test```
 10. Start development server ```rails s```
+11. Visit ```localhost:3000```
