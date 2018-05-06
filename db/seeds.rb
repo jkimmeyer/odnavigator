@@ -57,5 +57,8 @@ city_portals_list.each do |city_id, data_portal_id|
   CityPortal.create( city_id: city_id, data_portal_id: data_portal_id )
 end
 
+Dataset.all.each {|f| f.request_metadata}
+CityPortal.all.each {|f| MetricCalculatorService.call(f)}
+
 # Success-Message for a successful process.
 puts "Seeds generated!"

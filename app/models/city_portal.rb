@@ -11,6 +11,7 @@ class CityPortal < ApplicationRecord
 
   CACHE_POLICY = lambda { 3.day.ago }
   validates :city, uniqueness: {scope: :data_portal}
+  after_create :initial_setup
 
   # Work with yield and modulize this request pattern.
   # first try to get all datasets, if that doesnt work, do other package_list method.

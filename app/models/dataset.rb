@@ -6,12 +6,11 @@ class Dataset < ApplicationRecord
 
   belongs_to :city_portal
   has_many :data_resources
-  # datasets.where("'regi' = ANY(category)").count
 
   def request_metadata
-    @dataset = get_dataset_details(self.city_portal.data_portal.url, self.package_search_title)
-    # FetchDatasetsJob.perform_later(self.id, @dataset, self.city_portal.city_id)
-    # swap upper with this below
+    # In Case if Job Queue should not handle this.
+     @dataset = get_dataset_details(self.city_portal.data_portal.url, self.package_search_title)
+    #FetchDatasetsJob.perform_later(self.id, @dataset, self.city_portal.city_id)
     if !@dataset.is_a? Integer
       harmonize_dataset(self.id, @dataset, self.city_portal.city_id)
       self.update(active: true)
