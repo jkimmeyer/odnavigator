@@ -8,4 +8,12 @@ Rails.application.routes.draw do
   get 'maps/:id', to: 'maps#show'
   get 'maps/category/:category', to: 'maps#get_category_values'
   get 'api/documentation', to: 'api/documentation#show'
+
+  namespace :api, defaults: {format: :json} do
+    resources :cities, only: [:index] do
+      get 'metrics', on: :collection
+      get 'details', on: :collection
+    end
+    resources :documentation, only: [:index]
+  end
 end
