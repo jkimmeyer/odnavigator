@@ -3,7 +3,7 @@ module OdmLicenses
     open_licenses = [
       'CC0',
       'ODC-PDDL','Open Data Commons Public Domain Dedication and Licence','PDDL',
-      'CC BY', 'CC-BY',
+      'CC BY', 'CC-BY', 'cc-zero',
       'ODC-BY',
       'CC BY-SA', 'CC-BY-SA',
       'ODC-ODbL','ODbL',
