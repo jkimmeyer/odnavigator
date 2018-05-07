@@ -1,9 +1,10 @@
 # odnavigator
-Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen zur einfacheren Navigation bietet.
+Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen zur einfacheren Navigation bietet. Der Prototyp kann zur Zeit unter https://calm-tor-81670.herokuapp.com/ getestet werden.
 
 API-Docs: ```localhost:3000/api/documentation```
 
 Reindex Datasets and calculate metrics:
+
 ```shell
 $ rails c
 $ FetchDatasetsService.call()
@@ -17,7 +18,9 @@ Der ODNavigator ist 2018 im Rahmen meiner Bachelorarbeit entstanden. Durch den O
 
 Die entwickelten Metriken dienen außerdem dazu, dass Datenbereitsteller erkennen können, was sie konkret an ihrer aktuellen Datenbereitstellung verbessern können. In Zukunft soll die Möglichkeit geboten werden, dass neben den Datenportalen auch innerhalb der Datensätze detailreicher navigiert werden kann. 
 
-Der nächste Schritt wird sein, diese Anwendung zur Marktreife zu bringen. Um dieses Vorhaben durchzuführen, ist es sinnvoll sich zunächst an den erstellten Issues zu orientieren und diese zu lösen.
+Der nächste Schritt wird sein, diese Anwendung zur Marktreife zu bringen. Um dieses Vorhaben durchzuführen, ist es sinnvoll, sich zunächst an den erstellten Issues zu orientieren und diese zu lösen.
+
+## Architektur
 
 
 ## Alternativen
