@@ -1,7 +1,7 @@
 # odnavigator
 Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen zur einfacheren Navigation bietet. Der Prototyp kann zur Zeit unter https://calm-tor-81670.herokuapp.com/ getestet werden. Falls Interesse an der Bachelorarbeit oder einer Zusammenarbeit besteht, melden Sie sich bitte per E-Mail.
 
-API-Docs: ```localhost:3000/api/documentation```
+API-Docs: ```localhost:3000/api/documentation``` oder [API Docs](https://github.com/jkimmeyer/odnavigator/blob/master/api.pdf)
 
 Reindex Datasets and calculate metrics:
 
