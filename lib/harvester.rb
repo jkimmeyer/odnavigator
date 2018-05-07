@@ -6,19 +6,18 @@
 
 module Harvester
   include HashSearch
-
+# does not work on all dkan portals - so you should reindex whole portal every time
   def get_recently_updated_datasets(base_url)
     return handle_request(URI.encode(base_url + '/revision_list'))
   end
 
-# does not work on all dkan portals - so the choose below should be used.
+# does not work on all dkan portals - so the option below should be used.
   def get_all_datasets_and_resources(base_url)
     return handle_request(URI.encode(base_url + '/current_package_list_with_ressources'))
   end
 
   def get_all_datasets(base_url)
     return handle_request(URI.encode(base_url + '/package_list'))
-    # get_dataset_details(base_url, datasetId)
   end
 
   def get_dataset_details(base_url, id)
@@ -27,7 +26,7 @@ module Harvester
       return response.first
     else
       return response
-    end  
+    end
   end
 end
 

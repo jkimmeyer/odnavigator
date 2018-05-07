@@ -13,6 +13,7 @@ private
     @city_portal = city_portal
     @data_portal = DataPortal.find(@city_portal.data_portal_id)
 
+    # Berechnung des Medians
     sum_of_datasets = @city_portal.metric_datasets_sum
     if sum_of_datasets > sum_median
       sum_performance = 100.00
@@ -24,6 +25,8 @@ private
     access = @city_portal.metric_non_properitary.round(2)
     data_format = @city_portal.metric_machine_readable.round(2)
     completeness = @city_portal.metric_completeness.round(2)
+
+    # Zusammenrechnung der Metriken - asap Gewichtung reinbringen.
     total = ((openness + access + data_format + completeness + sum_performance).to_f / 5).round(2)
 
     @data_portal.update(openness_quality: openness,
@@ -35,6 +38,7 @@ private
                        )
   end
 
+  # Mappt die Kategorie Werte zusammen.
   def get_category_count(city_portal)
     @city_portal = city_portal
     @data_portal = DataPortal.find(@city_portal.data_portal_id)
@@ -43,6 +47,7 @@ private
     @data_portal.update(category_counts: categories)
   end
 
+  # Berechnung des Medians.
   def sum_median
     median(CityPortal.all.map {|f| f.metric_datasets_sum})
   end

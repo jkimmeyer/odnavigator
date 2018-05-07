@@ -11,15 +11,16 @@ class CityPortal < ApplicationRecord
 
   CACHE_POLICY = lambda { 3.day.ago }
   validates :city, uniqueness: {scope: :data_portal}
+  validates_uniqueness_of :package_search_title
   after_create :initial_setup
 
-  # Work with yield and modulize this request pattern.
-  # first try to get all datasets, if that doesnt work, do other package_list method.
-  def initial_setup
-    @dataset_ids = get_all_datasets(self.data_portal.url)
-    @dataset_ids.each do |dataset|
-      Dataset.create(package_search_title: dataset, city_portal_id: self.id)
-    end
+
+  # just create if no entry can be found
+  def reindex_datasets
+     @dataset_ids = get_all_datasets(self.data_portal.url)
+     @dataset_ids.each do |dataset|
+       Dataset.create(package_search_title: dataset, city_portal_id: self.id) if !Dataset.find_by(package_search_title: dataset)
+     end
   end
 
   def metric_datasets_sum
@@ -42,6 +43,7 @@ class CityPortal < ApplicationRecord
     return (self.datasets.sum {|f| f.calc_completeness}).to_f / metric_datasets_sum.to_f
   end
 
+  # Zählt die Werte der Kategorien
   def count_categories
     @categories = ENV["CATEGORIES"].split(',')
     @category_count = Hash.new
@@ -53,6 +55,16 @@ class CityPortal < ApplicationRecord
   end
 
 private
+
+  # nach dem Erstellen eines neuen CityPortals werden alle Datensätze einmal eingelesen.
+
+  def initial_setup
+    @dataset_ids = get_all_datasets(self.data_portal.url)
+    @dataset_ids.each do |dataset|
+      Dataset.create(package_search_title: dataset, city_portal_id: self.id)
+    end
+  end
+
   def check_non_properitary
     count_non_properitary = 0
     self.datasets.each do |f|

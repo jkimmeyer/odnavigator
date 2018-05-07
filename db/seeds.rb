@@ -39,7 +39,10 @@ end
 data_portal_list = [
  [ "http://offenedaten-koeln.de/api/3/action", "Offene Daten Köln", "Open Data Portal der Stadt Köln", "/current_package_list_with_resources"],
  [ "https://opendata.bonn.de/api/3/action", "Offene Daten Bonn", "Open Data Portal der Stadt Bonn", "/current_package_list_with_resources"],
- [ "http://offenedaten.aachen.de/api/3/action", "Offene Daten Aachen", "Open Data Portal der Stadt Aachen", "/current_package_list_with_resources"]
+ [ "http://offenedaten.aachen.de/api/3/action", "Offene Daten Aachen", "Open Data Portal der Stadt Aachen", "/current_package_list_with_resources"],
+ [ "https://www.opengov-muenchen.de/api/3/action", "Offene Daten München", "Open Data Portal der Stadt München", "/current_package_list_with_resources"]
+ [ "http://www.offenedaten.frankfurt.de/api/3/action/", "Offene Daten Frankfurt", "Open Data Portal der Stadt Frankfurt", "/current_package_list_with_resources"]
+
 ]
 
 # Create the Data Apis.
@@ -50,7 +53,9 @@ end
 city_portals_list = [
   [ "53150000000", 1 ],
   [ "53140000000", 2 ],
-  [ "53340002002", 3 ]
+  [ "53340002002", 3 ],
+  [City.find_by(name: 'München').id, 4]
+  [City.find_by(name: 'Frankfurt').id, 4]
 ]
 
 city_portals_list.each do |city_id, data_portal_id|
