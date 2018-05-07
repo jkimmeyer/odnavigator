@@ -20,8 +20,8 @@ Die entwickelten Metriken dienen außerdem dazu, dass Datenbereitsteller erkenne
 
 Der nächste Schritt wird sein, diese Anwendung zur Marktreife zu bringen. Um dieses Vorhaben durchzuführen, ist es sinnvoll, sich zunächst an den erstellten Issues zu orientieren und diese zu lösen.
 
-## Architektur
-
+## Erläuterung zur Code-Struktur
+https://github.com/jkimmeyer/odnavigator/blob/master/doc/code_struktur.md
 
 ## Alternativen
 - [opendatainception.io](https://opendatainception.io)
