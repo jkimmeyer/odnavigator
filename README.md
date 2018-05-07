@@ -1,5 +1,5 @@
 # odnavigator
-Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen zur einfacheren Navigation bietet. Der Prototyp kann zur Zeit unter https://calm-tor-81670.herokuapp.com/ getestet werden.
+Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierungen zur einfacheren Navigation bietet. Der Prototyp kann zur Zeit unter https://calm-tor-81670.herokuapp.com/ getestet werden. Falls Interesse an der Bachelorarbeit oder einer Zusammenarbeit besteht, melden Sie sich bitte per E-Mail.
 
 API-Docs: ```localhost:3000/api/documentation```
 
@@ -21,7 +21,7 @@ Die entwickelten Metriken dienen außerdem dazu, dass Datenbereitsteller erkenne
 Der nächste Schritt wird sein, diese Anwendung zur Marktreife zu bringen. Um dieses Vorhaben durchzuführen, ist es sinnvoll, sich zunächst an den erstellten Issues zu orientieren und diese zu lösen.
 
 ## Erläuterung zur Code-Struktur
-https://github.com/jkimmeyer/odnavigator/blob/master/doc/code_struktur.md
+[Code-Struktur](https://github.com/jkimmeyer/odnavigator/blob/master/doc/code_struktur.md)
 
 ## Alternativen
 - [opendatainception.io](https://opendatainception.io)
@@ -37,4 +37,5 @@ https://github.com/jkimmeyer/odnavigator/blob/master/doc/code_struktur.md
 - Zunächst nur Änderungen an Code-Teilen
 
 ## Continuous Integration
+tbd. 
 ![Build Status](https://travis-ci.com/jkimmeyer/odnavigator.svg?token=RNrpHhqDGiujTBgM6w2s&branch=master)
