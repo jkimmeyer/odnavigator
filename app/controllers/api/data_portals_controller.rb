@@ -10,6 +10,8 @@ module Api
     end
 
     def index
+      @data_portals = DataPortal.all
+      render json: @data_portals
     end
 
     def details

@@ -19,31 +19,11 @@
         responses:
           "200":
             description: "Documentation"
-    /maps:
-      get:
-        description: "Returns the map"
-        produces:
-          - "application/json"
-        responses:
-          "200":
-            description: "Map"
-            schema:
-              properties:
-                city_features:
-                  type: array
-                  items:
-                    $ref: '#/definitions/Features'
 
     /dataportals:
       get:
         summary: "Returns all dataportals"
         description: "Returns all dataportals with the city name and the apparting metrics."
-        parameters:
-          - in: query
-            name: metric
-            type: string
-            required: true
-            example: quality
         produces:
           - "application/json"
         responses:
@@ -59,7 +39,7 @@
     /dataportals/marker:
       get:
         summary: "Returns all markers for the dataportal"
-        description: "Returns all dataportals with the marker and the appertaining metric value."
+        description: "Returns all dataportals with their appertaining metric value."
         parameters:
           - in: query
             name: metric
@@ -87,7 +67,13 @@
             name: metric
             type: string
             required: true
-            example: quality
+            example:
+              - quality
+              - openness_quality
+              - access_quality
+              - format_quality
+              - completeness_quality
+              - sum_of_datasets
         produces:
           - "application/json"
         responses:
@@ -98,7 +84,7 @@
                 details:
                   type: array
                   items:
-                    $ref: '#/definitions/Details'
+                    $ref: '#/definitions/DataPortals'
 
     /cities:
       get:
@@ -173,11 +159,8 @@
           type: string
           example: Münster
         metric:
-          type: object
-          properties:
-            name:
-              type: string
-              example: Qualität
+          type: number
+          example: 50.30
 
     Progress:
       type: object
@@ -199,16 +182,30 @@
     DataPortals:
       type: object
       properties:
-        city:
-          type: string
-          example: Münster
-        platform:
-          type: string
-          example: "https://opendata.bonn.de"
-
-    Details:
-      type: object
-      properties:
+        id:
+          type: number
+          example: 1
         name:
           type: string
-          example: Hello
+          example: Offene Daten Köln
+        url:
+          type: string
+          example: "https://opendata.bonn.de"
+        description:
+          type: string
+          example: Open Data Portal der Stadt Köln
+        status:
+          type: string
+          example: pending
+        sum_of_datasets:
+          type: number
+          example: 200
+        quality:
+          type: number
+          example: 59.39
+        category_counts:
+          type: object
+          properties:
+            agri:
+              type: number
+              example: 24
