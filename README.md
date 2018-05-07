@@ -3,6 +3,12 @@ Kommunaler Open Data Navigator für Deutschland der Metriken und Visualisierunge
 
 API-Docs: ```localhost:3000/api/documentation```
 
+Reindex Datasets and calculate metrics:
+```shell
+$ rails c
+$ FetchDatasetsService.call()
+```
+
 ## Projekt Idee
 
 ### Alternativen

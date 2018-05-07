@@ -21,8 +21,8 @@ function initInfoBox(){
 
   // method that we will use to update the control based on feature properties passed
   info.update = function (props) {
-      this._div.innerHTML = '<h4>Bevölkerung</h4>' +  (props ?
-          '<b>' + props.GEN + '</b><br />' + props.destatis.population + ' Einwohner'
+      this._div.innerHTML = '<h4>Metrikwert</h4>' +  (props ?
+          '<b>' + props.GEN + '</b><br />' + datasetValues[props.GEN] + ' %'
           : 'Hover over a state');
   };
 

@@ -14,7 +14,11 @@ class DataPortal < ApplicationRecord
   validates_uniqueness_of :url
 
   def current_metric(metric)
-    return self[metric]
+    if metric == 'sum_of_datasets'
+      return (self[metric] / DataPortal.all.map(&:sum_of_datasets).max.to_f * 100.00).round(2)
+    else
+      return self[metric]
+    end
   end
 
   def details

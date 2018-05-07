@@ -20,7 +20,7 @@ class Dataset < ApplicationRecord
   end
 
   def openness
-    return get_open_licenses.include?(self.license)
+    return get_open_licenses.include?(self.license&.downcase)
   end
 
   def machine_readable

@@ -22,6 +22,6 @@ module OdmLicenses
       'W3C license',
       'Licence-Ouverte', 'FR-LO'
     ]
-    return open_licenses
+    return open_licenses.map(&:downcase)
   end
 end

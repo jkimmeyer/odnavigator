@@ -5,7 +5,7 @@ function highlightFeature(e) {
         weight: 3,
         color: '#CCCCCC',
         dashArray: '',
-        fillOpacity: 0.7
+        fillOpacity: 0
     });
 
     if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {

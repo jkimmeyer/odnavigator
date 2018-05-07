@@ -18,12 +18,12 @@ class CityPortal < ApplicationRecord
   def reindex_datasets
      @dataset_ids = get_all_datasets(self.data_portal.url)
      @dataset_ids.each do |dataset|
-       Dataset.create(package_search_title: dataset, city_portal_id: self.id) if !Dataset.find_by(package_search_title: dataset)
+       Dataset.create(package_search_title: dataset, city_portal_id: self.id) if !self.datasets.find_by(package_search_title: dataset)
      end
   end
 
   def metric_datasets_sum
-    return self.datasets.count
+    return self.datasets.where(active: true).count
   end
 
   def metric_non_properitary
@@ -39,7 +39,7 @@ class CityPortal < ApplicationRecord
   end
 
   def metric_completeness
-    return (self.datasets.sum {|f| f.calc_completeness}).to_f / metric_datasets_sum.to_f
+    return (self.datasets.where(active:true).sum {|f| f.calc_completeness}).to_f / metric_datasets_sum.to_f
   end
 
   # Zählt die Werte der Kategorien
@@ -60,13 +60,13 @@ private
   def initial_setup
     @dataset_ids = get_all_datasets(self.data_portal.url)
     @dataset_ids.each do |dataset|
-      Dataset.create(package_search_title: dataset, city_portal_id: self.id)
+      Dataset.create(package_search_title: dataset, city_portal_id: self.id) if !self.datasets.find_by(package_search_title: dataset)
     end
   end
 
   def check_non_properitary
     count_non_properitary = 0
-    self.datasets.each do |f|
+    self.datasets.where(active: true).each do |f|
       count_non_properitary += 1 if f.non_proprietary
     end
     return count_non_properitary
@@ -74,7 +74,7 @@ private
 
   def check_machine_readability
     count_machine_readability = 0
-    self.datasets.each do |f|
+    self.datasets.where(active: true).each do |f|
       count_machine_readability += 1 if f.machine_readable
     end
     return count_machine_readability
@@ -82,7 +82,7 @@ private
 
   def check_licenses
     count_open_licenses = 0
-    self.datasets.each do |f|
+    self.datasets.where(active: true).each do |f|
       count_open_licenses += 1 if f.openness
     end
     return count_open_licenses
