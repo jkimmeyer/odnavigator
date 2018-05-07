@@ -11,7 +11,6 @@ class CityPortal < ApplicationRecord
 
   CACHE_POLICY = lambda { 3.day.ago }
   validates :city, uniqueness: {scope: :data_portal}
-  validates_uniqueness_of :package_search_title
   after_create :initial_setup
 
 
